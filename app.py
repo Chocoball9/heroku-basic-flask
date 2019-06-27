@@ -128,7 +128,7 @@ def callback():
             # if "home" in text or "Home" in text:
             #     print("replying text:{}".format(text))
             #     reply_menu(reply_token)
-                if "home" in text or "Home" in text:
+            if "home" in text or "Home" in text:
                 print("replying text:{}".format(text))
                 reply_menu3(reply_token)
             elif text == "weather":
