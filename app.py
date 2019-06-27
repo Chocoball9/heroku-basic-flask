@@ -139,6 +139,117 @@ def callback():
     return '',200
 
 def reply_menu(reply_token):
+    print('from reply menu')
+    print("Authorization:{}".format(Authorization))
+    print("reply_token:{}".format((reply_token)))
+
+    # line_bot_api.reply_message(reply_token, TextSendMessage(text='Hello World222!'))
+
+    response = requests.post(
+        url="https://api.line.me/v2/bot/message/reply",
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": Authorization,
+        },
+        data=json.dumps({
+            "replyToken": str(reply_token),
+            "messages": [
+                {
+                    "type": "text",
+                    "text": "เชิญเลือกเมนูได้เลยครับ",
+                    "quickReply": {
+                        "items": [
+                            {
+                                "type": "action",
+                                "imageUrl": 'https://drive.google.com/uc?export=download&id=1Hsd2w0YF1ThUIQEiXXm-6s67fmV7azh2',
+                                "action": {
+                                    "type": "message",
+                                    "label": "home",
+                                    "text": "Home"
+                                }
+                            },
+                            {
+                                "type": "action",
+                                "imageUrl": 'https://drive.google.com/uc?export=download&id=1Hsd2w0YF1ThUIQEiXXm-6s67fmV7azh2',
+                                "action": {
+                                    "type": "message",
+                                    "label": "weather",
+                                    "text": "weather"
+                                }
+                            },
+                            {
+                                "type": "action",
+                                "imageUrl": 'https://drive.google.com/uc?export=download&id=1Hsd2w0YF1ThUIQEiXXm-6s67fmV7azh2',
+                                "action": {
+                                    "type": "message",
+                                    "label": "energy",
+                                    "text": "energy"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        })
+    )
+    print('Response HTTP Status Code: {status_code}'.format(
+        status_code=response.status_code))
+    print('Response HTTP Response Body: {content}'.format(
+        content=response.content))
+
+
+def reply_menu2(reply_token):
+    print('from reply menu')
+    print("Authorization:{}".format(Authorization))
+    print("reply_token:{}".format((reply_token)))
+
+    # line_bot_api.reply_message(reply_token, TextSendMessage(text='Hello World222!'))
+
+    response = requests.post(
+        url="https://api.line.me/v2/bot/message/reply",
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": Authorization,
+        },
+        data=json.dumps({
+            "replyToken": str(reply_token),
+            "messages": [{
+  "type": "template",
+  "altText": "this is a carousel template",
+  "template": {
+    "type": "carousel",
+    "actions": [],
+    "columns": [
+      {
+        "thumbnailImageUrl": "https://d3n8a8pro7vhmx.cloudfront.net/edonsw/pages/995/attachments/original/1386210667/green_energy_320.jpg",
+        "text": "Energy",
+        "actions": [
+          {
+            "type": "message",
+            "label": "click",
+            "text": "energy"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://d3n8a8pro7vhmx.cloudfront.net/edonsw/pages/995/attachments/original/1386210667/green_energy_320.jpg",
+        "text": "Weather",
+        "actions": [
+          {
+            "type": "message",
+            "label": "click",
+            "text": "weather"
+          }
+        ]
+      }
+    ]
+  }
+}]
+        })
+    )
+
+
+def reply_menu3(reply_token):
     response = requests.post(
         url="https://api.line.me/v2/bot/message/reply",
         headers={
@@ -179,6 +290,50 @@ def reply_menu(reply_token):
     ]
   }
 }]
+        })
+    )
+
+
+
+
+def reply_menu4(reply_token):
+    response = requests.post(
+        url="https://api.line.me/v2/bot/message/reply",
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": Authorization,
+        },
+        data=json.dumps({
+            "replyToken": str(reply_token),
+            "messages": []
+        })
+    )
+
+
+def reply_menu5(reply_token):
+    response = requests.post(
+        url="https://api.line.me/v2/bot/message/reply",
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": Authorization,
+        },
+        data=json.dumps({
+            "replyToken": str(reply_token),
+            "messages": []
+        })
+    )
+
+
+def reply_menu6(reply_token):
+    response = requests.post(
+        url="https://api.line.me/v2/bot/message/reply",
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": Authorization,
+        },
+        data=json.dumps({
+            "replyToken": str(reply_token),
+            "messages": []
         })
     )
 
